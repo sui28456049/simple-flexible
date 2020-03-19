@@ -1,23 +1,2 @@
-language: node_js
-node_js:
-  - "12"
-cache:
-  directories:
-  - node_modules
-before_install:
-  - openssl aes-256-cbc -K $encrypted_d063b6483270_key -iv $encrypted_d063b6483270_iv
-  -in .travis/id_rsa.enc -out ~/.ssh/id_rsa -d
-  - chmod 600 ~/.ssh/id_rsa
-addons:
-  ssh_known_hosts: "175.126.168.177"
-branches:
-  only:
-  - master
-install:
-  - npm install
-before_script:
-script:
-  - npm run start
-after_script:
-  - pwd
-  - scp test1.txt root@175.126.168.177:/home
+language: python
+script: true
